@@ -14,7 +14,9 @@ passport.use(new GoogleStrategy({
     clientSecret: "CLIENTSECRET",
     callbackURL: "http://localhost:3000/login/info"
   },
-  function(accessToken, refreshToken, done) {
+  //IN ORDER TO ACCESS THE PROFILE OBJECT, YOU MUST PASS IT AS A VARIABLE
+  function(accessToken, refreshToken, profile, done) {
+  //THE PROFILE VARIABLE WILL NOW CONTAIN THE OBJECT WITH ALL OF THE USERS INFO
     return done(null, profile);
   }
 ));
